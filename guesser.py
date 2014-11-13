@@ -97,7 +97,17 @@ class Processor:
         return zip(self.header, [self.determine_col_type(col) for col in
             self.rows])
 
+sql_mappings = {
+  'string': 'character varying'
+}
+
+def sql_type(x):
+    if x in sql_mappings:
+        r = sql_mappings[x]
+    else:
+        r = x
+    return r.upper()
 
 def map_sql(table_name, d):
     return "CREATE TABLE " + table_name + " (" + \
-            ",".join("%s %s" % (c, t) for c,t in d.items() + ");"
+            ",".join(["%s %s" % (c, sql_type(t)) for c,t in d]) + ");"
