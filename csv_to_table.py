@@ -2,7 +2,7 @@
 
 import argparse
 from typeguesser import TypeGuesser
-
+from guesser import Processor
 
 def main():
     argParser = argparse.ArgumentParser()

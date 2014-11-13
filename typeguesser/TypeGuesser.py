@@ -6,6 +6,8 @@ from warnings import warn
 from dateutil import parser as dateParser
 
 
+
+
 class TypeGuesser(object):
 
     def __init__(self, fileName, header=False, sampleProbability=None,
